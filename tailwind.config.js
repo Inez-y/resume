@@ -5,7 +5,11 @@ module.exports = {
     "./src/./*.{html,js,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Poiret One", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
