@@ -1,6 +1,6 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 body {
   margin: 20;
@@ -10,6 +10,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+header {
+  text-align: center;
+  h1 {
+    font-size: xx-large;
+    font-weight: bold;
+  };
+  nav {
+    /* Doesntw work */
+
+  };
+  a {
+    padding: 2%;
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

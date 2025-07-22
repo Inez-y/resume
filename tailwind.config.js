@@ -9,8 +9,11 @@ module.exports = {
       fontFamily: {
         sans: ["Poiret One", "sans-serif"],
       },
+      
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }
 
