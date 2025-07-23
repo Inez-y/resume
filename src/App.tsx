@@ -6,10 +6,13 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
+import Nav from "./components/Nav";
+
 const App: React.FC = () => {
   return (
     <div className="Main-Content">
       <Header />
+      <Nav />
       <Landing />
       {/* <About />
       <Skills />

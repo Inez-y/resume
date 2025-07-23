@@ -6,50 +6,77 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Intro: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sectionRef.current && textRef.current) {
-      // Pinning effect (like Apple’s fixed hero)
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=200%",
-        pin: true,
-        scrub: true,
-      });
+    if (!sectionRef.current || !imageRef.current || !textRef.current) return;
 
-      // Parallax effect for text
-      gsap.fromTo(
-        textRef.current,
-        { y: 0 },
-        {
-          y: -100,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=200%",
-            scrub: true,
-          },
-        }
-      );
-    }
+    // Pin the section so it stays fixed during scroll
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=30%", 
+      pin: true,
+      scrub: true,
+    });
+
+    // Zoom the image as user scrolls
+    gsap.fromTo(
+      imageRef.current,
+      { scale: 0.8, opacity: 0.7 },
+      {
+        scale: 1.2,
+        opacity: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=30%",
+          scrub: true,
+        },
+      }
+    );
+
+    // Move the text upward slightly (parallax feel)
+    gsap.fromTo(
+      textRef.current,
+      { y: 0 },
+      {
+        y: -100,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=30%",
+          scrub: true,
+        },
+      }
+    );
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-100 text-center"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden"
     >
-      <h1
-        ref={textRef}
-        className="text-6xl md:text-7xl font-bold tracking-tight"
-      >
-        Welcome to My Portfolio
-      </h1>
-      <p className="text-xl md:text-2xl mt-6 max-w-2xl">
-        Creating interactive, elegant web experiences.
-      </p>
+      {/* Parallax Text */}
+      <div ref={textRef} className="z-10 text-center px-6">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+          Experience Innovation
+        </h1>
+        <p className="mt-4 text-xl md:text-2xl max-w-xl mx-auto text-gray-300">
+          Sleek. Powerful. Future-ready.
+        </p>
+      </div>
+
+      {/* Zooming Image */}
+      {/* <img
+        ref={imageRef}
+        src="/src/assets/intro.png" 
+        alt="intro"
+        className="absolute bottom-0 w-80 md:w-[500px] object-contain"
+      /> */}
     </section>
   );
 };
