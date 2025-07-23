@@ -17,10 +17,6 @@ header {
     font-size: xx-large;
     font-weight: bold;
   };
-  nav {
-    /* Doesntw work */
-
-  };
   a {
     padding: 2%;
   }

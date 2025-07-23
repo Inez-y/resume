@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Landing from "./components/Landing";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -10,8 +10,8 @@ const App: React.FC = () => {
   return (
     <div className="Main-Content">
       <Header />
-      {/* <Hero />
-      <About />
+      <Landing />
+      {/* <About />
       <Skills />
       <Projects />
       <Contact /> */}
