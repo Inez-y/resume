@@ -4,7 +4,7 @@ const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
     //<nav className={`${isOpen ? "block" : "hidden"} md:flex justify-between`}>
   return (
-    <nav className="flex sticky justify-center">
+    <nav className="flex justify-center">
         <a href="#about" className="hover:text-blue-600 m-2">About</a>
         <a href="#skills" className="hover:text-blue-600 m-2">Skills</a>
         <a href="#projects" className="hover:text-blue-600 m-2">Projects</a>
