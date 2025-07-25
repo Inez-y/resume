@@ -1,5 +1,5 @@
 import useScrollFadeIn from "./useScrollFadeIn";
-import CardCarousel from "../reusables/CardCarousel";
+import CardCarousel from "../Reusables/CardCarousel";
 
 const Education: React.FC = () => {
   const ref = useScrollFadeIn();
