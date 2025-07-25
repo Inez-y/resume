@@ -3,13 +3,13 @@ import useScrollFadeIn from "./useScrollFadeIn";
 
 // Colour Adjustment Needed
 const skills = [
-  { name: "Python", size: "large", color: "bg-pink-200" },
-  { name: "Java", size: "large", color: "bg-blue-200" },
-  { name: "React", size: "large", color: "bg-green-200" },
-  { name: "TypeScript", size: "medium", color: "bg-yellow-200" },
-  { name: "JavaScript", size: "medium", color: "bg-purple-200" },
-  { name: "C", size: "medium", color: "bg-red-200" },
-  { name: "SQL", size: "medium", color: "bg-indigo-200" },
+  { name: "Python", size: "large", color: "bg-pink-100" },
+  { name: "Java", size: "large", color: "bg-blue-100" },
+  { name: "React", size: "large", color: "bg-green-100" },
+  { name: "TypeScript", size: "medium", color: "bg-yellow-100" },
+  { name: "JavaScript", size: "medium", color: "bg-purple-100" },
+  { name: "C", size: "medium", color: "bg-red-100" },
+  { name: "SQL", size: "medium", color: "bg-indigo-100" },
   { name: "MySQL", size: "small", color: "bg-pink-100" },
   { name: "HTML", size: "small", color: "bg-green-100" },
   { name: "CSS", size: "small", color: "bg-blue-100" },
@@ -24,68 +24,39 @@ const Skills: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const positionBubbles = () => {
+      const container = containerRef.current;
+      if (!container) return;
+     
+      const { offsetWidth , offsetHeight } = container;
+      const bubbles = Array.from(container.children) as HTMLElement[];
 
-    const { offsetWidth, offsetHeight } = container;
-    const bubbles = Array.from(container.children) as HTMLElement[];
-
-    let angle = 0;
-    let radius = 0;
-
-    bubbles.forEach((bubble, idx) => {
       const centerX = offsetWidth / 2;
-      const centerY = offsetHeight / 2;
+      const centerY = offsetHeight / 3;
+      let angle = 0;
+      let radius = 0;
 
-      const spacing = Math.min(offsetWidth, offsetHeight) / 8;
-      const angleStep = 0.6;
+      const angleStep = 15; // Lower value → spiral wraps tighter (more loops)
+      const baseSpacing = Math.min(offsetWidth * 0.3, offsetHeight * 0.3) / 90; // Smaller divisor → spiral is tighter
 
-      if (skills[idx].size === "large") {
-        bubble.style.left = `${centerX - bubble.offsetWidth / 2}px`;
-        bubble.style.top = `${centerY - bubble.offsetHeight / 2}px`;
-      } else {
+      bubbles.forEach((bubble, idx) => {
+        const size = bubble.offsetWidth; // dynamic bubble size
+        const gap = size * 0.3; // Increase multiplier to space out bubbles more
+
         angle += angleStep;
-        radius += spacing / (skills[idx].size === "medium" ? 1.5 : 1);
+        radius += gap; // increment radius by each bubble’s size
 
-        const x = centerX + radius * Math.cos(angle) - bubble.offsetWidth / 2;
-        const y = centerY + radius * Math.sin(angle) - bubble.offsetHeight / 2;
+        const x = centerX + radius * Math.cos(angle) - size /3;
+        const y = centerY + radius * Math.sin(angle) - size /3;
 
         bubble.style.left = `${x}px`;
         bubble.style.top = `${y}px`;
-      }
-    });
-
-    const handleResize = () => {
-      requestAnimationFrame(() => {
-        const { offsetWidth, offsetHeight } = container;
-        let angle = 0;
-        let radius = 0;
-
-        bubbles.forEach((bubble, idx) => {
-          const centerX = offsetWidth / 2;
-          const centerY = offsetHeight / 2;
-          const spacing = Math.min(offsetWidth, offsetHeight) / 8;
-          const angleStep = 0.6;
-
-          if (skills[idx].size === "large") {
-            bubble.style.left = `${centerX - bubble.offsetWidth / 2}px`;
-            bubble.style.top = `${centerY - bubble.offsetHeight / 2}px`;
-          } else {
-            angle += angleStep;
-            radius += spacing / (skills[idx].size === "medium" ? 1.5 : 1);
-
-            const x = centerX + radius * Math.cos(angle) - bubble.offsetWidth / 2;
-            const y = centerY + radius * Math.sin(angle) - bubble.offsetHeight / 2;
-
-            bubble.style.left = `${x}px`;
-            bubble.style.top = `${y}px`;
-          }
-        });
       });
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    positionBubbles();
+    window.addEventListener("resize", positionBubbles);
+    return () => window.removeEventListener("resize", positionBubbles);
   }, []);
 
   return (
@@ -99,15 +70,15 @@ const Skills: React.FC = () => {
       {/* Responsive spiral container */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-[90%] md:max-w-[1200px] h-[500px] sm:h-[600px] md:h-[700px] mx-auto"
+        className="relative w-full max-w-[90%] md:max-w-[1200px] h-[500px] sm:h-[600px] md:h-[700px] my-auto"
       >
         {skills.map((skill, idx) => {
-          const sizeClass =
-            skill.size === "large"
-              ? "w-32 h-32 sm:w-40 sm:h-40 text-lg sm:text-xl"
-              : skill.size === "medium"
-              ? "w-20 h-20 sm:w-28 sm:h-28 text-base sm:text-lg"
-              : "w-14 h-14 sm:w-20 sm:h-20 text-xs sm:text-sm";
+        const sizeClass =
+        skill.size === "large"
+          ? "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 text-base md:text-lg"
+          : skill.size === "medium"
+          ? "w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 text-xs md:text-sm"
+          : "w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[10px] sm:text-xs";
 
           return (
             <div
