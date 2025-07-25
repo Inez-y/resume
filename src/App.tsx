@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <div className="Main-Content">
       <Header />
-      <Nav />
+      {/* <Nav /> */}
       <Landing />
       {/* <About />
       <Skills />

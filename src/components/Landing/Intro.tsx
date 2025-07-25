@@ -16,7 +16,7 @@ const Intro: React.FC = () => {
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=50%",  
+      end: "+=200%",  
       pin: true,
       scrub: true,
     });
@@ -32,7 +32,7 @@ const Intro: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=50%",
+          end: "+=200%",
           // scrub: true,
           scrub: 0.2,
         },
@@ -49,7 +49,7 @@ const Intro: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=50%",
+          end: "+=200%",
           // scrub: true,
           scrub: 0.2,
         },
