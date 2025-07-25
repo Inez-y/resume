@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import useScrollFadeIn from "./useScrollFadeIn";
+import gsap from "gsap"; // Add GSAP import
 
 // Colour Adjustment Needed
 const skills = [
@@ -51,6 +52,20 @@ const Skills: React.FC = () => {
 
         bubble.style.left = `${x}px`;
         bubble.style.top = `${y}px`;
+
+        // Floating animation
+        const floatDistance = 40 + Math.random() * 10; // 10-20px movement
+        const floatDuration = 4 + Math.random() * 2;   // 4-6 seconds loop
+
+        gsap.to(bubble, {
+          y: `+=${floatDistance}`,
+          duration: floatDuration,
+          yoyo: true,
+          repeat: -1,
+          ease: "bounce.inOut",
+          delay: Math.random() * 10, // random delay so they don't move together
+        });
+        
       });
     };
 
