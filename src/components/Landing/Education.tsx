@@ -38,6 +38,16 @@ const Education: React.FC = () => {
           </p>
           <CardCarousel cards={cards} />
         </div>
+        {/* Second Education */}
+        <div className="py-2">
+        <p className="text-xlg">
+            Bachelor’s in Computer Science – Your University Here (2020)
+          </p>
+          <p className="text-base text-gray-600">
+            Focused on full-stack development, project-based hadns-on learning, and team
+            collaborations.
+          </p>
+        </div>
       </div>
     </section>
   );
