@@ -29,20 +29,20 @@ const Education: React.FC = () => {
         <h2 className="text-4xl font-bold">Education</h2>
 
         {/* First Education */}
-        <div className="">
-          <p className="text-xlg">
+        <div className="py-2">
+          <p className="text-lg">
             Bachelor’s in Computer Science – Your University Here (2020)
           </p>
           <p className="text-base text-gray-600">
-            Focused on full-stack development, project-based learning, and team
+            Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
           <CardCarousel cards={cards} />
         </div>
 
         {/* Second Education */}
-        <div className="">
-          <p className="text-xlg">
+        <div className="py-2">
+          <p className="text-lg">
             Bachelor’s in Computer Science – Your University Here (2020)
           </p>
           <p className="text-base text-gray-600">

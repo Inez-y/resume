@@ -38,18 +38,18 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </div>
 
       {/* Animated Card Display */}
-      <TransitionGroup className="w-full flex justify-center">
+      <TransitionGroup className="w-full flex items-center justify-center rounded-lg shadow-md" >
         <CSSTransition
           key={current}
           timeout={400}
           classNames="card-transition"
           nodeRef={nodeRef}
         >
-          <div ref={nodeRef} className="flex flex-col items-center justify-center">
+          <div ref={nodeRef} className="flex-col justify-center text-center items-center">
             <img
               src={cards[current].src}
               alt={`Card ${current + 1}`}
-              className="w-80 md:w-[400px] object-cover rounded-lg shadow-md"
+              className="rounded-lg"
             />
             <p className="mt-4 text-sm text-gray-500 text-center max-w-xs">
               {cards[current].caption}
