@@ -22,31 +22,18 @@ const Education: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 gap-10"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 gap-10 w-full"
     >
-
-      <div className="flex-1 space-y-4">
+      <div className="flex-2 space-y-4">
         <h2 className="text-4xl font-bold">Education</h2>
 
         {/* First Education */}
         <div className="py-2">
-          <p className="text-lg">
+          <p className="text-xlg">
             Bachelor’s in Computer Science – Your University Here (2020)
           </p>
           <p className="text-base text-gray-600">
             Focused on full-stack development, project-based hadns-on learning, and team
-            collaborations.
-          </p>
-          <CardCarousel cards={cards} />
-        </div>
-
-        {/* Second Education */}
-        <div className="py-2">
-          <p className="text-lg">
-            Bachelor’s in Computer Science – Your University Here (2020)
-          </p>
-          <p className="text-base text-gray-600">
-            Focused on full-stack development, project-based learning, and team
             collaborations.
           </p>
           <CardCarousel cards={cards} />

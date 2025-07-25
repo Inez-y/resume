@@ -45,13 +45,13 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
           classNames="card-transition"
           nodeRef={nodeRef}
         >
-          <div ref={nodeRef} className="flex-col justify-center text-center items-center">
+          <div ref={nodeRef} className="flex flex-col justify-center text-center items-center">
             <img
               src={cards[current].src}
               alt={`Card ${current + 1}`}
               className="rounded-lg"
             />
-            <p className="mt-4 text-sm text-gray-500 text-center max-w-xs">
+            <p className="mt-4 text-m text-gray-500 text-center max-w-xs">
               {cards[current].caption}
             </p>
           </div>
