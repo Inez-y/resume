@@ -18,6 +18,7 @@ const skills = [
   { name: "Go", size: "small", color: "bg-purple-100" },
   { name: "R", size: "small", color: "bg-indigo-100" },
   { name: "Ocaml", size: "small", color: "bg-red-100" },
+  { name: "Kotlin", size: "small", color: "bg-orange-100" },
 ];
 
 const Skills: React.FC = () => {
@@ -42,7 +43,7 @@ const Skills: React.FC = () => {
 
       bubbles.forEach((bubble, idx) => {
         const size = bubble.offsetWidth; // dynamic bubble size
-        const gap = size * 0.3; // Increase multiplier to space out bubbles more
+        const gap = size * 0.35; // Increase multiplier to space out bubbles more
 
         angle += angleStep;
         radius += gap; // increment radius by each bubble’s size
@@ -54,7 +55,7 @@ const Skills: React.FC = () => {
         bubble.style.top = `${y}px`;
 
         // Floating animation
-        const floatDistance = 40 + Math.random() * 10; // 10-20px movement
+        const floatDistance = 10 + Math.random() * 10; // 10-20px movement
         const floatDuration = 4 + Math.random() * 2;   // 4-6 seconds loop
 
         gsap.to(bubble, {
@@ -77,15 +78,14 @@ const Skills: React.FC = () => {
   return (
     <section
       ref={ref}
-      // mw-auto doesn't work
-      className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-96"
+      className="min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full"
     >
-      <h2 className="text-4xl font-bold mb-8">Skills</h2>
+      <h2 className="text-5xl font-bold mb-8 mt-40">Skills</h2>
 
       {/* Responsive spiral container */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-[90%] md:max-w-[1200px] h-[500px] sm:h-[600px] md:h-[700px] my-auto"
+        className="relative w-full max-w-[90%] md:max-w-[1200px] max-h-[90%] sm:h-[600px] md:h-[700px] p-40"
       >
         {skills.map((skill, idx) => {
         const sizeClass =

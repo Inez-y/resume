@@ -17,7 +17,6 @@ const Work: React.FC = () => {
       <p className="flex flex-row text-lg max-w-2xl">
         Software Engineer at [Company], building scalable web apps (2021–Present).
       </p>
-
     </section>
   );
 };
