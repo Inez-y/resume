@@ -84,8 +84,8 @@ const Landing: React.FC = () => {
       {/* <section><Intro /></section> */}
       {/* <section><Education /></section> */}
       {/* <section><Work /></section> */}
-      <section><Skill /></section>
-      {/* <section><Project /></section> */}
+      {/* <section><Skill /></section> */}
+      <section><Project /></section>
     </main>
   );
 };
