@@ -1,28 +1,33 @@
 import useScrollFadeIn from "./useScrollFadeIn";
 import CardCarousel from "./Reusables/CardCarousel";
+import edu1 from "assets/edu1.jpeg";
+import edu2 from "assets/edu2.jpeg";
+import edu3 from "assets/edu3.jpeg";
+import edu4 from "assets/edu4.jpeg";
+import edu5 from "assets/edu5.jpeg";
 
 const Education: React.FC = () => {
   const ref = useScrollFadeIn();
 
   const cards = [
     {
-      src: "src/assets/edu1.jpeg",
+      src: edu1,
       caption: "Organized a pre-orientation meeting before the first semester started.",
     },
     {
-      src: "src/assets/edu2.jpeg",
+      src: edu2,
       caption: "As a set reprentative, hiked with class friends to releve stress after the first midterm.",
     },
     {
-      src: "src/assets/edu3.jpeg",
+      src: edu3,
       caption: "Happily graduated on June 2025.",
     },
     {
-      src: "src/assets/edu4.jpeg",
+      src: edu4,
       caption: "Presented the personal project, the Calculator to a class.",
     },
     {
-      src: "src/assets/edu5.jpeg",
+      src: edu5,
       caption: "As a vice-president of fitness club, launched the fitness club merch at the first time.",
     },
   ];
@@ -47,8 +52,9 @@ const Education: React.FC = () => {
             Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
-          <CardCarousel cards={cards} />
+          {/* <CardCarousel cards={cards} /> */}
         </div>
+        
 
         {/* Second Education */}
         <div className="py-20">

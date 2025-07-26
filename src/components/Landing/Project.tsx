@@ -2,6 +2,13 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import useScrollFadeIn from "./useScrollFadeIn";
 
+import project1 from "assets/project1.jpeg";
+import project2 from "assets/project2.jpeg";
+import project3 from "assets/project3.jpg";
+import project4 from "assets/project4.png";
+import project5 from "assets/project5.jpeg";
+import project6 from "assets/project6.png";
+
 interface ProjectCard {
   title: string;
   desc: string;
@@ -24,7 +31,7 @@ const Projects: React.FC = () => {
       title: "Inez's Playground",
       desc: "Responsive React + Tailwind portfolio.",
       link: "https://github.com/Inez-y/resume",
-      image: "src/assets/project1.jpeg",
+      image: project1,
       bgColor: "bg-gray-900",
       glowColor: "rgba(156,163,175,0.5)",
     },
@@ -32,7 +39,7 @@ const Projects: React.FC = () => {
       title: "Catculator",
       desc: "Binary Tree Language Model Logic with Ocaml.",
       link: "https://github.com/Inez-y/ocaml_catculator",
-      image: "src/assets/project2.jpeg",
+      image: project2,
       bgColor: "bg-gray-900",
       glowColor: "rgba(156,163,175,0.5)",
     },
@@ -40,7 +47,7 @@ const Projects: React.FC = () => {
       title: "Vancouvr Housing Market",
       desc: "Elixir and Phoenix implementation of bordgame Monopoly.",
       link: "https://github.com/Inez-y/COMP4959_Project",
-      image: "src/assets/project3.jpeg",
+      image: project3,
       bgColor: "bg-blue-900",
       glowColor: "rgba(59,130,246,0.5)",
     },
@@ -48,7 +55,7 @@ const Projects: React.FC = () => {
       title: "Daily Check-In Bot for Discord",
       desc: "Python and discord extension for fitness club check-in.",
       link: "https://github.com/Inez-y/dailyCheckInBot",
-      image: "src/assets/project4.jpeg",
+      image: project4,
       bgColor: "bg-green-900",
       glowColor: "rgba(34,197,94,0.5)",
     },
@@ -56,7 +63,7 @@ const Projects: React.FC = () => {
       title: "Duolingo Clone",
       desc: "A group LLM project with huggingface.",
       link: "https://github.com/Inez-y/LLM-Storyteller",
-      image: "src/assets/project5.jpeg",
+      image: project5,
       bgColor: "bg-yellow-900",
       glowColor: "rgba(250,204,21,0.5)",
     },
@@ -64,7 +71,7 @@ const Projects: React.FC = () => {
       title: "Recipt",
       desc: "A group web project with OpenAI API and Clariai API.",
       link: "https://github.com/Inez-y/2800-2024410-DTC08",
-      image: "src/assets/project6.jpeg",
+      image: project6,
       bgColor: "bg-purple-900",
       glowColor: "rgba(192,132,252,0.5)",
     },

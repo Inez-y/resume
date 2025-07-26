@@ -24,21 +24,19 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center w-full max-w-lg mx-auto my-3">
+    <div className="relative flex flex-col items-center w-full max-w-lg mx-auto my-3 h-72"> 
       {/* Left Button */}
-      <div className="absolute inset-y-0 left-0 flex items-center">
+      <div className="absolute inset-y-0 left-0 flex items-center z-10">
         <button
           onClick={prevCard}
-          className="text-gray-700 p-2 rounded-full hover:bg-gray-900 hover:scale-110 hover:opacity-80 transition-transform duration-200"
+          className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
         >
-          <span className="material-symbols-outlined text-3xl">
-            chevron_left
-          </span>
+          <span className="material-symbols-outlined text-3xl">chevron_left</span>
         </button>
       </div>
 
       {/* Animated Card Display */}
-      <TransitionGroup className="w-full flex items-center justify-center rounded-lg shadow-md" >
+      <TransitionGroup className="flex items-center justify-center rounded-lg shadow-md">
         <CSSTransition
           key={current}
           timeout={400}
@@ -49,7 +47,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
             <img
               src={cards[current].src}
               alt={`Card ${current + 1}`}
-              className="rounded-lg"
+              className="max-w-16 max-h-16 object-cover rounded-lg" 
             />
             <p className="mt-4 text-m text-gray-500 text-center max-w-xs">
               {cards[current].caption}
@@ -59,14 +57,12 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </TransitionGroup>
 
       {/* Right Button */}
-      <div className="absolute inset-y-0 right-0 flex items-center">
+      <div className="absolute inset-y-0 right-0 flex items-center z-10">
         <button
           onClick={nextCard}
-          className="text-gray-700 p-2 rounded-full hover:bg-gray-900 hover:scale-110 hover:opacity-80 transition-transform duration-200"
+          className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
         >
-          <span className="material-symbols-outlined text-3xl">
-            chevron_right
-          </span>
+          <span className="material-symbols-outlined text-3xl">chevron_right</span>
         </button>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import picture from "assets/001.jpeg";
 
 const Intro: React.FC = () => {
   const roles = ["full-stack programmer", "new grad", "team player", "game developer", "dancer"];
@@ -43,9 +44,9 @@ const Intro: React.FC = () => {
         {/* Left side: Image */}
         <div className="w-full md:w-1/2 flex justify-center">
           <img
-            src="src/assets/001.jpeg"
+            src={picture}
             alt="Profile"
-            className="rounded-full shadow-lg max-w-xs md:max-w-sm"
+            className="rounded-full shadow-lg max-w-40 max-h-40 md:max-w-sm"
           />
         </div>
 
