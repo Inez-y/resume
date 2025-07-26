@@ -5,10 +5,10 @@ const Nav: React.FC = () => {
     //<nav className={`${isOpen ? "block" : "hidden"} md:flex justify-between`}>
   return (
     <nav className="flex flex-row justify-center">
-        <a href="#about" className="hover:text-blue-600 mx-2">About</a>
-        <a href="#skills" className="hover:text-blue-600 mx-2">Skills</a>
-        <a href="#projects" className="hover:text-blue-600 mx-2">Projects</a>
-        <a href="#contact" className="hover:text-blue-600 mx-2">Contact</a>
+        <a href="https://github.com/Inez-y" className="hover:text-blue-600 mx-2">Github</a>
+        <a href="https://www.linkedin.com/in/inez-y/" className="hover:text-blue-600 mx-2">Linked-In</a>
+        <a href="mailto:inez3cs@gmail.com" className="hover:text-blue-600 mx-2">Email</a>
+        <a href="tel:+16047791223" className="hover:text-blue-600 mx-2">Call</a>
     </nav>
   );
 };

@@ -137,11 +137,11 @@ const Projects: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6 py-12 overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6 overflow-hidden"
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >
-      <h2 className="text-4xl font-bold mb-10">Projects</h2>
+      <h2 className="text-6xl font-bold mb-20">Projects</h2>
 
       <div className="relative w-full max-w-6xl">
         {/* Navigation Arrows */}
@@ -177,7 +177,7 @@ const Projects: React.FC = () => {
             return (
               <motion.div
                 key={idx}
-                className={`relative flex-shrink-0 h-[400px] mx-3 rounded-2xl overflow-hidden shadow-lg cursor-pointer ${project.bgColor}`}
+                className={`relative flex-shrink-0 h-[400px] mx-3 mb-60 rounded-2xl overflow-hidden shadow-lg cursor-pointer ${project.bgColor}`}
                 style={{ width: CARD_WIDTH }}
                 animate={{
                   scale: isActive ? 1.15 : 0.9,
