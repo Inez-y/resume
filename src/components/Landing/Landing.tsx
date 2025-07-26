@@ -82,10 +82,10 @@ const Landing: React.FC = () => {
   return (
     <main className="w-full">
       {/* <section><Intro /></section> */}
-      <section><Education /></section>
+      {/* <section><Education /></section> */}
+      <section><Work /></section>
       {/* <section><Skill /></section>
-      <section><Project /></section>
-      <section><Work /></section> */}
+      <section><Project /></section> */}
     </main>
   );
 };
