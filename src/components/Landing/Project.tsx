@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import useScrollFadeIn from "./useScrollFadeIn";
 
 interface ProjectCard {
@@ -15,6 +16,7 @@ const Projects: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [transition, setTransition] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const projects: ProjectCard[] = [
     // Ocaml
@@ -74,99 +76,132 @@ const Projects: React.FC = () => {
 
   ];
 
+  // Swipe gesture
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchStartX.current - touchEndX;
+    const threshold = 50; // min swipe
+    if (deltaX > threshold) nextSlide();
+    else if (deltaX < -threshold) prevSlide();
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+  const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? projects.length - 1 : prev - 1
+    );
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: x * 10, y: -y * 10 }); // max 10deg tilt
-    setTransition(false); // disable snap transition during movement
+    setTilt({ x: x * 10, y: -y * 10 });
+    setTransition(false);
   };
 
   const handleMouseLeave = () => {
     setTilt({ x: 0, y: 0 });
-    setTransition(true); // enable smooth snap back
+    setTransition(true);
   };
 
   return (
     <section
       ref={ref}
       className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6 py-12"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <h2 className="text-4xl font-bold mb-10">Projects</h2>
 
-      <div className="flex flex-wrap justify-center items-stretch gap-6 max-w-6xl">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className={`relative transition-all duration-500 cursor-pointer perspective ${
-              hoveredIndex === index
-                ? "brightness-100 z-20"
-                : hoveredIndex !== null
-                ? "brightness-75 z-10"
-                : "brightness-100 z-10"
-            }`}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => {
-              setHoveredIndex(null);
-              handleMouseLeave();
-            }}
-            onMouseMove={handleMouseMove}
-            onClick={() => window.open(project.link, "_blank")}
+      {/* Carousel Container */}
+      <div className="relative w-full max-w-xl overflow-hidden">
+        <AnimatePresence initial={false} custom={currentIndex}>
+          <motion.div
+            key={currentIndex}
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center"
           >
-            {/* Soft Glow Effect */}
-            {hoveredIndex === index && (
-              <div
-                className="absolute -inset-4 rounded-3xl blur-2xl transition-opacity duration-500"
-                style={{
-                  background: project.glowColor,
-                  opacity: hoveredIndex === index ? 0.7 : 0,
-                }}
-              ></div>
-            )}
-
-            {/* Card */}
+            {/* Single Visible Card */}
             <div
-              style={{
-                transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-                transition: transition ? "transform 0.6s ease" : "none",
+              key={currentIndex}
+              className="relative cursor-pointer"
+              onMouseEnter={() => setHoveredIndex(currentIndex)}
+              onMouseLeave={() => {
+                setHoveredIndex(null);
+                handleMouseLeave();
               }}
-              className={`relative rounded-3xl overflow-hidden w-72 sm:w-80 h-[480px] flex flex-col justify-end p-6 text-grey shadow-lg transition-all duration-500 ${project.bgColor} ${
-                hoveredIndex === index ? "shadow-2xl scale-105" : "scale-100"
-              }`}
+              onMouseMove={handleMouseMove}
+              onClick={() => window.open(projects[currentIndex].link, "_blank")}
             >
-              {/* Project Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className={`absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 opacity-80 bg-white${
-                  hoveredIndex === index ? "scale-110" : "scale-100"
-                }`}
-              />
+              {/* Glow */}
+              {hoveredIndex === currentIndex && (
+                <div
+                  className="absolute -inset-4 rounded-3xl blur-2xl"
+                  style={{
+                    background: projects[currentIndex].glowColor,
+                    opacity: 0.6,
+                  }}
+                />
+              )}
 
-              {/* Overlay Text + Button */}
+              {/* Card */}
               <div
-                className={`relative z-10 transform transition-all duration-500 ${
-                  hoveredIndex === index
-                    ? "-translate-y-2 opacity-100"
-                    : "translate-y-0 opacity-90"
+                style={{
+                  transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+                  transition: transition ? "transform 0.6s ease" : "none",
+                }}
+                className={`relative rounded-3xl overflow-hidden w-72 sm:w-80 h-[480px] flex flex-col justify-end p-6 text-grey shadow-lg ${projects[currentIndex].bgColor} ${
+                  hoveredIndex === currentIndex
+                    ? "shadow-2xl scale-105"
+                    : "scale-100"
                 }`}
               >
-                <h3 className="text-m text-white text-pretty">{project.desc}</h3>
-                <h2 className="text-3xl font-extrabold text-white text-pretty">{project.title}</h2>
-                {hoveredIndex === index && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(project.link, "_blank");
-                    }}
-                    className="mt-4 px-4 py-2 text-sm font-medium bg-white text-black rounded-full shadow hover:shadow-lg transition-opacity duration-500 opacity-100"
-                  >
-                    View Project →
-                  </button>
-                )}
+                <img
+                  src={projects[currentIndex].image}
+                  alt={projects[currentIndex].title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                />
+                <div className="relative z-10">
+                  <h3 className="text-m text-white">{projects[currentIndex].desc}</h3>
+                  <h2 className="text-3xl font-extrabold text-white">{projects[currentIndex].title}</h2>
+                  {hoveredIndex === currentIndex && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(projects[currentIndex].link, "_blank");
+                      }}
+                      className="mt-4 px-4 py-2 text-sm font-medium bg-white text-black rounded-full shadow hover:shadow-lg"
+                    >
+                      View Project →
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="flex gap-2 mt-6">
+        {projects.map((_, i) => (
+          <div
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+              currentIndex === i ? "bg-black scale-125" : "bg-gray-400"
+            }`}
+          ></div>
         ))}
       </div>
     </section>
