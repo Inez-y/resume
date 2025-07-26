@@ -10,7 +10,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Landing: React.FC = () => {
+const Main: React.FC = () => {
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>("section");
     let current = 0;
@@ -90,4 +90,4 @@ const Landing: React.FC = () => {
   );
 };
 
-export default Landing;
+export default Main;

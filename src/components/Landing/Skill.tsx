@@ -23,6 +23,7 @@ const skills = [
   { name: "Ocaml", size: "small", color: "bg-red-100" },
   { name: "Kotlin", size: "small", color: "bg-orange-100"},
   { name: "UX/UI", size: "small", color: "bg-gray-100"},
+  { name: "Node.js", size: "medium", color: "bg-indigo-100" },
 ];
 
 const Skills: React.FC = () => {
