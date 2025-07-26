@@ -82,9 +82,9 @@ const Skills: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full overflow-auto pt-10"
+      className="min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full overflow-auto pt-20"
     >
-      <h2 className="absolute inset-0 text-9xl text-gray-500 font-bold ">Skills </h2>
+      <h2 className="absolute inset-0 text-9xl text-gray-500 font-bold pt-40">Skills </h2>
       
 
       {/* Responsive spiral container */}
