@@ -15,7 +15,7 @@ const Work: React.FC = () => {
       </p>
 
       <p className="flex flex-row text-lg max-w-2xl">
-        Restaurant Manger at Kuma Restaurant Group Inc (Dec 2019 - Mat 2023)
+        Restaurant Manger at Kuma Restaurant Group Inc (Dec 2019 - May 2023)
       </p>
 
       <p className="flex flex-row text-lg max-w-2xl">
