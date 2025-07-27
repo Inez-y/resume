@@ -144,13 +144,13 @@ const Projects: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-6 overflow-hidden"
+      className="min-h-screen mt-10 flex flex-col items-center justify-center bg-white text-center px-6 overflow-hidden"
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >
-      <h2 className="text-6xl font-bold mb-20">Projects</h2>
+      <h2 className="flex flex-col text-5xl font-bold m-20">Projects</h2>
 
-      <div className="relative w-full max-w-6xl">
+      <div className="flex relative w-full max-w-6xl">
         {/* Navigation Arrows */}
         <button
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-3 shadow hover:bg-white z-10"
