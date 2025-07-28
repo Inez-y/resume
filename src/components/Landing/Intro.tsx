@@ -36,7 +36,7 @@ const Intro: React.FC = () => {
     <div className="text-center px-6">
       {/* Title */}
       <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
-        Welcome!
+        Hello!
       </h1>
 
       {/* Two-column section */}

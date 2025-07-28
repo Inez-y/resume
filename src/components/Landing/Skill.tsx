@@ -91,7 +91,7 @@ const Skills: React.FC = () => {
       {/* Responsive spiral container */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-[70%] md:max-w-[1200px] max-h-[50%] sm:h-[600px] md:h-[700px]"
+        className="relative w-full max-w-[70%] md:max-w-[1200px] max-h-[55%] sm:h-[600px] md:h-[700px]"
       >
         {skills.map((skill, idx) => {
         const sizeClass =

@@ -3,6 +3,7 @@ import Education from "./Education";
 import Work from "./Work";
 import Skill from "./Skill";
 import Project from "./Project";
+import Contact from "./Contact";
 
 import { useEffect } from "react";
 import gsap from "gsap";
@@ -86,6 +87,7 @@ const Main: React.FC = () => {
       <section><Work /></section>
       <section><Skill /></section>
       <section><Project /></section>
+      <section><Contact /></section>
     </main>
   );
 };
