@@ -12,11 +12,11 @@ const Education: React.FC = () => {
   const cards = [
     {
       src: edu1,
-      caption: "Organized a pre-orientation meeting before the first semester started.",
+      caption: "Organized a pre-orientation meeting \nbefore the first semester started.",
     },
     {
       src: edu2,
-      caption: "As a set reprentative, hiked with class friends to releve stress after the first midterm.",
+      caption: "As a set reprentative, \nhiked with class friends to releve stress after the first midterm.",
     },
     {
       src: edu3,
@@ -24,24 +24,24 @@ const Education: React.FC = () => {
     },
     {
       src: edu4,
-      caption: "Presented the personal project, the Calculator to a class.",
+      caption: "Presented the personal project, \nthe Calculator to a class.",
     },
     {
       src: edu5,
-      caption: "As a vice-president of fitness club, launched the fitness club merch at the first time.",
+      caption: "As a vice-president of fitness club, \nlaunched the fitness club merch at the first time.",
     },
   ];
 
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 gap-10 w-full"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full pt-20"
     >
       <div className="flex flex-col">
         <h2 className="text-5xl font-bold">Education</h2>
 
         {/* First Education */}
-        <div className="py-2">
+        <div className="flex flex-col py-2">
           <p className="text-2xl">
             Diploma in Computer Science 
           </p>
@@ -52,16 +52,17 @@ const Education: React.FC = () => {
             Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
-          {/* <CardCarousel cards={cards} /> */}
+          <div className="flex items-center justify-center">
+            <p className="flex rounded-lg"> <CardCarousel cards={cards}/> </p>
+          </div>
         </div>
         
-
         {/* Second Education */}
-        <div className="py-20">
-          <p className="text-xl">
+        <div className="flex flex-col py-20">
+          <p className="text-2xl">
               Bachelor's in Arts
             </p>
-            <p className="text-l">
+            <p className="text-lg">
             English Language and Literature at Academic Credit Bank System for Bachelors (2021)
             </p>
             <p className="text-m text-gray-600">

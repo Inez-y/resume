@@ -24,9 +24,9 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center w-full max-w-lg mx-auto my-3 h-72"> 
+    <div className="relative flex flex-row items-center w-full max-w-lg mx-auto py-2"> 
       {/* Left Button */}
-      <div className="absolute inset-y-0 left-0 flex items-center z-10">
+      <div className="flex flex-row inset-y-0 left-0 items-center z-10">
         <button
           onClick={prevCard}
           className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
@@ -36,7 +36,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </div>
 
       {/* Animated Card Display */}
-      <TransitionGroup className="flex items-center justify-center rounded-lg shadow-md">
+      <TransitionGroup className="flex flex-col items-center justify-center rounded-lg shadow-md p-3">
         <CSSTransition
           key={current}
           timeout={400}
@@ -47,9 +47,10 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
             <img
               src={cards[current].src}
               alt={`Card ${current + 1}`}
-              className="max-w-16 max-h-16 object-cover rounded-lg" 
+              className="max-h-48 max-w-full rounded-2xl" 
             />
-            <p className="mt-4 text-m text-gray-500 text-center max-w-xs">
+            <p className="flex flex-col mt-4 text-m text-gray-500 text-center max-w-full p-3"
+            style={{ whiteSpace: "pre-line" }}>
               {cards[current].caption}
             </p>
           </div>
@@ -57,7 +58,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       </TransitionGroup>
 
       {/* Right Button */}
-      <div className="absolute inset-y-0 right-0 flex items-center z-10">
+      <div className="flex flex-row inset-y-0 right-0 items-center z-10">
         <button
           onClick={nextCard}
           className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
