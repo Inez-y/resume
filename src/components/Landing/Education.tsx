@@ -38,38 +38,37 @@ const Education: React.FC = () => {
       ref={ref}
       className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full pt-20"
     >
-      <div className="flex flex-col">
-        <h2 className="text-5xl font-bold">Education</h2>
+      <div className="flex flex-row">
+        <div className="flex flex-col py-2 text-right p-2">
+          <h2 className="text-5xl font-bold text-right">Education</h2>
+          <p className="text-2xl font-bold p-2">
+            Bachelor's in Applied Science (2027)
+          </p>
+          <p className="text-2xl p-2">
+            Diploma in Computer Science Technology (2025)
+          </p>
+          <p className="text-xl p-2">
+            British Columbia Institute Technology
+          </p>
 
-        {/* First Education */}
-        <div className="flex flex-col py-2">
-          <p className="text-2xl">
-            Diploma in Computer Science 
-          </p>
-          <p className="text-lg">
-          Computer Systems Technology at British Columbia Institute Technology (2025)
-          </p>
-          <p className="text-m text-gray-600">
+          <p className="text-m text-gray-600 p-2">
             Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
-          <div className="flex items-center justify-center">
+
+          <p className="text-m text-gray-600 p-2">
+            Have been taking leadership roles such as a set representative, a campus councillor and a vice-president of fitness club
+          </p>
+        </div>
+
+        {/* First Education */}
+        <div className="flex flex-col py-2">
+          <div className="flex flex-grow items-center justify-center">
             <p className="flex rounded-lg"> <CardCarousel cards={cards}/> </p>
           </div>
         </div>
         
-        {/* Second Education */}
-        <div className="flex flex-col py-20">
-          <p className="text-2xl">
-              Bachelor's in Arts
-            </p>
-            <p className="text-lg">
-            English Language and Literature at Academic Credit Bank System for Bachelors (2021)
-            </p>
-            <p className="text-m text-gray-600">
-              Developed critical thinking, analytical, and communication skills in English alongside with a board understanding of Enlighsh lliterature.
-            </p>
-          </div>
+        
       </div>
     </section>
   );

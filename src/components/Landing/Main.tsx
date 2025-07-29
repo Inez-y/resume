@@ -1,5 +1,6 @@
 import Intro from "./Intro";
 import Education from "./Education";
+import Education2 from "./Education2";
 import Work from "./Work";
 import Skill from "./Skill";
 import Project from "./Project";
@@ -82,12 +83,13 @@ const Main: React.FC = () => {
 
   return (
     <main className="w-full">
-      <section><Intro /></section>
+      {/* <section><Intro /></section> */}
       <section><Education /></section>
-      <section><Work /></section>
+      <section><Education2 /></section>
+      {/* <section><Work /></section>
       <section><Skill /></section>
       <section><Project /></section>
-      <section><Contact /></section>
+      <section><Contact /></section> */}
     </main>
   );
 };
