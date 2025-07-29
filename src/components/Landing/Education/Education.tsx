@@ -36,26 +36,26 @@ const Education: React.FC = () => {
     <section
       id="Education"
       ref={ref}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full pt-20"
+      className="min-h-screen flex flex-col md:flex-row justify-center text-right bg-gray-50 px-6 md:px-20 w-full"
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row text-right">
         <div className="flex flex-col py-2 text-right p-2">
           <h2 className="text-5xl font-bold text-right">Education</h2>
-          <p className="text-2xl p-2">
+          <p className="text-2xl p-2 text-right">
             Bachelor's in Applied Science (2027)
             <br></br>
             Diploma in Computer Science Technology (2025)
           </p>
-          <p className="text-xl p-2">
+          <p className="text-xl p-2 text-right">
             British Columbia Institute Technology
           </p>
 
-          <p className="text-lg text-gray-600 p-2">
+          <p className="text-lg text-gray-600 p-2 text-right">
             Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
 
-          <p className="text-lg text-gray-600 p-2">
+          <p className="text-lg text-gray-600 p-2 text-right">
             Have been taking leadership roles such as a set representative, a campus councillor and a vice-president of fitness club.
           </p>
         </div>
@@ -66,8 +66,6 @@ const Education: React.FC = () => {
             <p className="flex rounded-lg"> <CardCarousel cards={cards}/> </p>
           </div>
         </div>
-        
-        
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import picture from "assets/001.jpeg";
+import useScrollFadeIn from "./useScrollFadeIn";
 
 const Intro: React.FC = () => {
   const roles = ["full-stack programmer", "new grad", "team player", "game developer", "dancer"];
@@ -8,6 +9,7 @@ const Intro: React.FC = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [speed, setSpeed] = useState(120); // typing speed
+  const ref = useScrollFadeIn();
 
   useEffect(() => {
     const currentFull = roles[currentRole];
@@ -35,6 +37,7 @@ const Intro: React.FC = () => {
   return (
     <section 
       id="Intro"
+      ref={ref}
       className="justify-center items-center">
     <div className="px-12">
       {/* Title */}
