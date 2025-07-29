@@ -34,6 +34,7 @@ const Education: React.FC = () => {
 
   return (
     <section
+      id="Education"
       ref={ref}
       className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full pt-20"
     >

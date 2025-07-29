@@ -143,6 +143,7 @@ const Projects: React.FC = () => {
 
   return (
     <section
+      id="Projects"
       ref={ref}
       className="min-h-screen mt-10 flex flex-col items-center justify-center bg-white text-center px-6 overflow-hidden"
       onMouseEnter={stopAutoPlay}

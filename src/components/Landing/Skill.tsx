@@ -82,6 +82,7 @@ const Skills: React.FC = () => {
 
   return (
     <section
+      id="Skills"
       ref={ref}
       className="min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full overflow-auto pt-20"
     >
