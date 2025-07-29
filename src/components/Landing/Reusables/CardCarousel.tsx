@@ -24,12 +24,12 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
   };
 
   return (
-    <div className="relative flex flex-row items-center w-full max-w-lg mx-auto py-2"> 
+    <div className="flex flex-row items-center w-full max-w-lg mx-auto py-2"> 
       {/* Left Button */}
       <div className="flex flex-row inset-y-0 left-0 items-center z-10">
         <button
           onClick={prevCard}
-          className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
+          className=" text-gray-600 p-2 rounded-full hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
         >
           <span className="material-symbols-outlined text-3xl">chevron_left</span>
         </button>
@@ -47,7 +47,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
             <img
               src={cards[current].src}
               alt={`Card ${current + 1}`}
-              className="max-h-48 max-w-full rounded-2xl" 
+              className="max-h-full max-w-full rounded-2xl" 
             />
             <p className="flex flex-col mt-4 text-m text-gray-500 text-center max-w-full p-3"
             style={{ whiteSpace: "pre-line" }}>
@@ -61,7 +61,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ cards }) => {
       <div className="flex flex-row inset-y-0 right-0 items-center z-10">
         <button
           onClick={nextCard}
-          className="bg-white text-gray-700 p-2 rounded-full shadow hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
+          className=" text-gray-600 p-2 rounded-full hover:bg-gray-900 hover:text-white hover:scale-110 hover:opacity-90 transition-transform duration-200"
         >
           <span className="material-symbols-outlined text-3xl">chevron_right</span>
         </button>

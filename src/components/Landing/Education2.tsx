@@ -19,10 +19,16 @@ const Education2: React.FC = () => {
             Bachelor's in Arts
         </p>
         <p className="text-lg">
-        English Language and Literature at Academic Credit Bank System for Bachelors (2021)
+          English Language and Literature at Academic Credit Bank System for Bachelors (2021)
         </p>
         <p className="text-m text-gray-600">
           Developed critical thinking, analytical, and communication skills in English alongside with a board understanding of Enlighsh lliterature.
+        </p>
+
+        <br></br><br></br>
+
+        <p className="text-lg text-sky-800 italic">
+          It's such a joy to explore and expand knowledge!
         </p>
       </div>
     </section>

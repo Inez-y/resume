@@ -41,29 +41,28 @@ const Education: React.FC = () => {
       <div className="flex flex-row">
         <div className="flex flex-col py-2 text-right p-2">
           <h2 className="text-5xl font-bold text-right">Education</h2>
-          <p className="text-2xl font-bold p-2">
-            Bachelor's in Applied Science (2027)
-          </p>
           <p className="text-2xl p-2">
+            Bachelor's in Applied Science (2027)
+            <br></br>
             Diploma in Computer Science Technology (2025)
           </p>
           <p className="text-xl p-2">
             British Columbia Institute Technology
           </p>
 
-          <p className="text-m text-gray-600 p-2">
+          <p className="text-lg text-gray-600 p-2">
             Focused on full-stack development, project-based hadns-on learning, and team
             collaborations.
           </p>
 
-          <p className="text-m text-gray-600 p-2">
-            Have been taking leadership roles such as a set representative, a campus councillor and a vice-president of fitness club
+          <p className="text-lg text-gray-600 p-2">
+            Have been taking leadership roles such as a set representative, a campus councillor and a vice-president of fitness club.
           </p>
         </div>
 
         {/* First Education */}
         <div className="flex flex-col py-2">
-          <div className="flex flex-grow items-center justify-center">
+          <div className="flex">
             <p className="flex rounded-lg"> <CardCarousel cards={cards}/> </p>
           </div>
         </div>
