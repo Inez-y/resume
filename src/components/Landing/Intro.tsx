@@ -33,20 +33,23 @@ const Intro: React.FC = () => {
   }, [displayText, isDeleting, currentRole]);
 
   return (
-    <div className="text-center px-6">
+    <section 
+      id="Intro"
+      className="justify-center items-center">
+    <div className="px-12">
       {/* Title */}
       <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-8">
         Hello!
       </h1>
 
       {/* Two-column section */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-center">
         {/* Left side: Image */}
         <div className="w-full md:w-1/2 flex justify-center">
           <img
             src={picture}
             alt="Profile"
-            className="rounded-full shadow-lg max-w-40 max-h-40 md:max-w-sm"
+            className="rounded-full shadow-lg max-w-48 max-h-48 md:max-w-sm"
           />
         </div>
 
@@ -91,6 +94,7 @@ const Intro: React.FC = () => {
         `}
       </style>
     </div>
+  </section>
   );
 };
 

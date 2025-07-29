@@ -44,7 +44,7 @@ const Skills: React.FC = () => {
       let radius = 0;
 
       const angleStep = 15; // Lower value → spiral wraps tighter (more loops)
-      const baseSpacing = Math.min(offsetWidth * 0.3, offsetHeight * 0.3) / 100; // Smaller divisor → spiral is tighter
+      const baseSpacing = Math.min(offsetWidth * 0.3, offsetHeight * 0.3) / 90; // Smaller divisor → spiral is tighter
 
       bubbles.forEach((bubble, idx) => {
         const size = bubble.offsetWidth; // dynamic bubble size
@@ -53,8 +53,8 @@ const Skills: React.FC = () => {
         angle += angleStep;
         radius += gap; // increment radius by each bubble’s size
 
-        const x = centerX + radius * Math.cos(angle) - size /4;
-        const y = centerY + radius * Math.sin(angle) - size /5;
+        const x = centerX + radius * Math.cos(angle) - size;
+        const y = centerY + radius * Math.sin(angle) - size;
 
         bubble.style.left = `${x}px`;
         bubble.style.top = `${y}px`;
@@ -84,7 +84,7 @@ const Skills: React.FC = () => {
     <section
       id="Skills"
       ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full overflow-auto pt-20"
+      className="flex flex-col items-center justify-center bg-gray-50 w-full overflow-hidden"
     >
       <h2 className="absolute inset-0 text-9xl text-gray-500 font-bold pt-40">Skills </h2>
       

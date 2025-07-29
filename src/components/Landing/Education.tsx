@@ -36,7 +36,7 @@ const Education: React.FC = () => {
     <section
       id="Education"
       ref={ref}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full pt-20"
+      className="flex flex-col md:flex-row items-center justify-center bg-gray-50 px-6 md:px-20 w-full overflow-hidden"
     >
       <div className="flex flex-row">
         <div className="flex flex-col py-2 text-right p-2">
