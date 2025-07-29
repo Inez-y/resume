@@ -19,7 +19,7 @@ export default function useScrollFadeIn(yOffset = 50, duration = 1) {
           ease: "power3.out",
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 80%",
+            start: "top 100%",
             toggleActions: "play none none reverse",
           },
         }
